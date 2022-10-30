@@ -24,7 +24,7 @@ U2S is using a 8MHz clock so 460KHz is actually 500KHz. eeoscp (0x02) oscillator
 eeoscc (0x03) oscillator divider value.  
 These are the same values as used in AVRStudio, for the clock generator.  
 The clock setup source will explain it best:  
-  
+```
 SetupEClk: //for Timer0 OC0A  
 ldi r16,0  
 out TCNT0,r16  
@@ -47,6 +47,7 @@ breq secoff
 sbi DDRB,7 //OC0A=B7  
 secoff:  
 ret  
+```
 ---
 eerst (0x04) the reset polarity, 1=AVR 0=AT89, leave at 1.  
 ---
@@ -58,7 +59,7 @@ This is the assembly code definition of the eeprom variables.
 The last 16 is reserved for bootloader firmware. (0x00 to 0x0F)  
 Those marked xx SHOULD NOT be changed.  
 These values are directly mapped to parameters 0x90-0x9E. (0x10E-0x11C in SRAM)  
-  
+```
 .eseg  
 .org EEPROMEND-0xF  
 eesel:   .db    0x81 // Select default module  
@@ -77,4 +78,4 @@ ee0B:    .db    0xFF xx 9B reserved value <<====
 ee0C:    .db    0x00 xx 9C ?status?  
 ee0D:    .db    0xFF xx 9D ?data?  
 eerst:   .db    0x01 xx 9E ext rst 1=AVR // fix for avrdude  
-
+```
