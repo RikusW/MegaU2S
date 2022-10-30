@@ -9,3 +9,19 @@ The first Arduino Sketch must be loaded using module 0x81.
 It basically uses module 0x81 and adds a timeout of about 1 second.  
 The Arduino Core will use this module to load the next Sketch,  
 or to reset the Sketch when opening the console.  
+
+# Debug Module  
+It supports accessing any memory location including register, IO and SRAM.  
+  
+It has the following commands:  
+ - data Read (address )  
+ - Write ( address, data )  
+ - WriteBit ( address, and\_mask, or\_mask )  
+  
+This will allow a C program on the PC to access the IO registers on the AVR.  
+You'll be able to access AVR registers from within Visual studio as if using AVR Studio and a debugger.  
+  
+This cannot actually debug a program on the AVR itself.  
+  
+Look on [here](../U2S_Debug) for template project.  
+
