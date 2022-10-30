@@ -1,0 +1,308 @@
+// vim:ts=4 sts=0 sw=4
+
+Commands
+
+
+[Resp_OK] = A
+[Sync_CRC/EOP] = 0x20,0x20 = End Of Packet
+
+0x20 Get Synch             [Resp_OK]
+
+0x31 Single Step           [Sync_CRC/EOP] [Resp_OK]
+
+0x32 Read PC               [Sync_CRC/EOP] [Resp_OK] [program counter] [Resp_OK]
+0x33 Write PC              [program counter] [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+                           --PC = 3 bytes, msb first--
+
+0x42 Set Parameter         [parameter] [setting] [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+
+0x46 Forced Stop           [Sync_CRC/EOP] [Resp_OK] [checksum][program counter] [Resp_OK]
+                           --checksum = 0  PC = 2bytes msb first--
+
+0x47 Go                    [Sync_CRC/EOP] [Resp_OK]
+
+0x52 Read Memory           [memory type] [word count] [start address] [Sync_CRC/EOP]
+                           [Resp_OK] [word 0] ... [word n] [checksum] [Resp_OK]
+                           --wc=1 byte -- address 3 bytes msb first--
+
+0x53 Get Sign On           [Sync_CRC/EOP] [Resp_OK] [AVRNOCD] [Resp_OK]
+
+0x57 Write Memory          [memory type] [word count] [start address] [Sync_CRC/EOP]
+                           [Resp_OK] [Cmnd_DATA] [word 0] ... [word n]
+                           --wc=1 byte -- address 3 bytes msb first--
+                           --Cmd_DATA == h 0x68 ?--
+
+0x62? Ignored
+0x63? Ignored
+
+0x64 Get Debug Info        [Sync_CRC/EOP] [Resp_OK] [0x00] [Resp_OK]
+
+0x71 Get Parameter         [parameter] [Sync_CRC/EOP] [Resp_OK] [setting] [Resp_OK]
+
+0x78 Reset                 [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+
+0xA0 Set Device Descriptor [device info] [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+                           --123 bytes--
+
+0xA1 Erase Page spm        [address] [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+                           --address = 3bytes msb first--
+
+0xA2 Firmware Upgrade      ["JTAGupgr"] [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+
+0xA3 Enter Progmode        [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+
+0xA4 Leave Progmode        [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+
+0xA5 Chip Erase            [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+
+0xC0? ShiftIR              [IR] [Idle] [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+                           --[IR] 4 bit value  [Idle] Idle cycles--
+
+0xC1? ShiftDR              [RW] [Bits] [RW] [Idle] [W-Data] [Sync_CRC/EOP] [Resp_OK] [R-Data] [Resp_OK]
+                           --[RW] 0=W 1=R   [Data] msb to lsb ?aligned on lsbit? -- max 6 bytes--
+
+0xC2? Osccal	         [Sync_CRC/EOP] [Resp_OK] [Resp_OK]
+
+
+//----------------------------------------
+JTDesc: //JTAG Device Descriptor 123 bytes
+ucRead:				.byte 8
+ucWrite:			.byte 8
+ucReadShadow:		.byte 8
+ucWriteShadow:		.byte 8  //32
+ucExtRead:			.byte 20
+ucExtWrite:			.byte 20
+ucExtReadShadow:	.byte 20
+ucExtWriteShadow:	.byte 20 //80
+
+ucIDRAddress:		.byte 1 //IO
+ucSPMCAddress:		.byte 1 //MMap
+ucRAMPZAddress:		.byte 1 //IO
+uwFlashPageSize:	.byte 2 //byte size lsb first
+ucEepromPageSize:	.byte 1
+ulBootAddress:		.byte 4 //smallest boot address
+ucUpperExtIOLoc:	.byte 1 //11 - highest accessible extended io register
+//----------------------------------------
+
+Responses
+
+0x41 A OK      R  [Resp_OK]
+0x42 B Break   E  [Resp_Break] [break status register H] [break status register L]
+0x45 E Sync    R  [Resp_SyncError] --EOP!=0x20 or unknown command--
+0x46 F Failed  R  [Resp_Failed]
+0x47 G Info    E  [Resp_INFO] [IDR/OCDR] [Resp_OK]
+0x48 H Sleep   E  [Resp_Sleep] [state] [Resp_OK]
+0x49 I Power   E  [Resp_Power] [state] [Resp_OK]
+
+
+//----------------------------------------
+
+Parameters
+
+0x62 RW Baudrate  UBRR == -BR * 4 - 1
+	F4 >  9600 2F
+	F8 > 14400 1F
+	FA > 19200 17
+	FD > 38400 0B
+	FE > 57600 07
+	FF >115200 03
+
+0x70 RW EECR - IO address (1C/1F)
+	Custom Parameter NOT in the real ICE.
+	EECR is autodetected, this is just to verify.
+
+0x7A R  Hardware Version	0xC0 -- connected to PC3210
+0x7B R  SwVersion		0x80
+
+0x81 RW Ireg High		Instruction to be executed on GO
+0x82 RW Ireg Low		Used for software breakpoints.
+
+0x84 R  OCD Vtarget		200 = 4.9V (1=24.5mV)
+
+0x86 RW OCD JTAG Clock
+	Must be <= 1/4 of part frequency
+	JTAG clock settings -- n=COM(IN) Frequency=(7.372MHz/(12n+4))
+	This is the maximum frequency of the TCK pulse.
+	When TCK is low other things are done, lowering the frequency.
+	IN OUT=~IN
+	FF 0 1MHz
+	FE 1 500kHz --Recommended setting, use this rather than 1MHz--
+	FD 2 250kHz
+	FC 3 166kHz
+	FB 4 125kHz
+	FA 5 100kHz
+	F3 C 50kHz 
+
+0x87 R  OCD Break cause		BSR low byte
+
+0x88  W Flash PageSizeL		Device specific  Modifies the Device Descriptor
+0x89  W Flash PageSizeH		Device specific
+0x8A  W EEPROM PageSize		Device specific
+
+0x8B  W External Reset
+	1=Reset 0=Clear Reset
+
+0xA0  W Timers Running
+	0=off 1=on
+
+0xA1  W Change of Flow
+	Will set the bit regardless of parameter value.
+
+0xA2  W Break1H
+0xA3  W Break1L
+	  PDMSB
+
+0xA4  W Break2H
+0xA5  W Break2L
+	  PDSB
+
+0xA6  W CombBreakCtrl
+	Break1 & 2 will be loaded to ic when this parameter is set.
+
+	mapping to BCR bits
+	7-2 EN_PSB1 turn on only, ??internal use??
+	6-1 BMASK
+	5-0 EN_PDMSB
+	4-7 EN_PDSB
+	3-6 PDMSB1
+	2-5 PDMSB0
+	1-4 PDSB1
+	0-3 PDSB0
+
+0xA7 R  JTAGIDByte0	LSB	Device specific  Get this one FIRST.
+0xA8 R  JTAGIDByte1		Device specific
+0xA9 R  JTAGIDByte2		Device specific
+0xAA R  JTAGIDByte3	MSB	Device specific
+
+0xAB  W Units Before
+0xAC  W Units After
+0xAD  W Bits Before
+0xAE  W Bits After
+
+0xAF  W PSB0L  Write high THEN low.
+0xB0  W PSB0H
+0xB1  W PSB1L
+0xB2  W PSB1H  These are loaded when the low byte is set.
+
+0xB3 R  MCU_mode  0=stopped  1=running  2=programming
+
+0xB4? W Reset Break address
+0xB5? W	Reset Break address
+0xB6? W ??Changes pml function??
+0xB7? W
+0xB8? W
+
+//----------------------------------------
+
+Memory types
+
+0x20 RW Sram
+0x22 RW Eeprom
+0x30 RW IOShadow
+0x60  W EventL
+	The data byte is used for addressing PSB0 or PSB1.
+	The 16 bit Address goes into PSBx.
+0x90 R  BreakReg
+	OCD Register Address=0-15
+0xA0 RW PML
+	Word address
+0xB0 RW FLASH_JTAG
+	Word address, usually written 256 bytes per go.
+0xB1 RW EEPROM_JTAG
+0xB2 RW FUSE_JTAG
+0xB3 RW LOCK_JTAG
+0xB4 R  SIGN_JTAG
+0xB5 R  OSCCAL_JTAG
+
+//----------------------------------------
+
+OCD Registers
+
+OCD 0 PSB0
+OCD 1 PSB1
+OCD 2 PDMSB
+OCD 3 PDSB
+OCD 4 ?
+OCD 5 ?
+OCD 6 ?
+OCD 7 ?
+
+OCD 8 BCR
+OCD 9 BSR
+OCD A ?
+OCD B ?
+OCD C OCDR - This is the IO mapped OCDR register
+OCD D CSR
+OCD E ?
+OCD F ?
+
+//----------------------------------------
+
+OCD 8 BCR
+
+15 	RUNTIMER	Enable timers to run during a Break
+14 	PC24		Selects between reading PC+2 and PC+4 during a Break
+13 	EN_STEP		Enable single stepping
+12 	EN_FLOW		Enable break on change of program flow
+11 	EN_PSB0		Enable use of PSB0 for break on PC  --- see SetPSB01 1a38:
+
+10 	EN_PSB1		Enable use of PSB1 for break on PC
+9 	BMASK		Use a mask for break comparisons
+8 	EN_PDMSB	Enable use of PDMSB for break on PC and memory access
+7 	EN_PDSB		Enable use of PDSB for break on PC and memory access
+6 	PDMSB1		PDMSB mode select - Enable for PC and memory breaks
+5 	PDMSB0		PDMSB mode select - Enable for PC breaks, clear for memory breaks
+4 	PDSB1		PDSB mode select - Enable for PC and memory breaks
+3 	PDSB0		PDSB mode select - Enable for PC breaks, clear for memory breaks
+
+2 	BCR2		Unknown
+1 	BCR1		Always 0 (non-writeable)
+0 	BCR0		Always 0 (non-writeable)
+
+//----------------------------------------
+
+OCD 9 BSR
+
+15	BSR15  	Unknown
+14 	BSR14 	Unknown
+13 	BSR13 	Unknown
+12 	BSR12 	Unknown
+11 	BSR11 	Unknown
+10 	BSR10 	Unknown
+9 	BSR9	Unknown
+8 	BSR9	Unknown
+
+7 	STEPB 	Single step break
+6 	FLOWB 	Break on change in program flow
+5 	PSB0B 	Break on PSB0
+4 	PSB1B 	Break on PSB1
+3 	PDMSBB 	Break on PDSB
+2 	PDSBB 	Break on PMDSB
+1 	ForceB 	Break by Force IR=8
+0 	SoftB 	Software Break
+
+//----------------------------------------
+
+OCD D CSR
+
+D15 	rw 	1=Enable OCDR 
+D14 	rw 	1=--set before ucWrite io saving, cleared after--- 1bf2: 1c80: + 1e0c: 1ea4: 
+		------guessing this will allow setting IO data like UDR without tx ????
+D13-D8 	r 	? 
+D7	r	CSR_Present 1 when jtag pin 2/10 is pulled down ---316: cce:---
+D6	r
+D5	r
+D4 	r 	1=OCDR written by AVR and not read by OCD ---see 33a:--
+D3 	r	Sometimes 1 after a break
+D2 	r 	CSR_B1 -- Cpu stopped by a break
+D1 	r 	CSR_B0
+D0	r	CSR_Sleep ---Sleep Status--- 2f4:
+
+//----------------------------------------
+
+
+
+
+
+
+

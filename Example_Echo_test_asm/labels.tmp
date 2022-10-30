@@ -1,0 +1,61 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.1.42</VERSION>
+ <DEVICE>ATmega32U2</DEVICE>
+ <WORKING_DIR>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files\Atmel\AVR Tools\AvrAssembler2\Appnotes\m32U2def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sfw_asm.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sfw_asm.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sfw_asm.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <conf_nr><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>27</LINE></conf_nr>
+  <line_flags><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>28</LINE></line_flags>
+  <line_coding><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>29</LINE></line_coding>
+  <line_status><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>30</LINE></line_status>
+  <line_break><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>31</LINE></line_break>
+  <select><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>32</LINE></select>
+  <Start><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>109</LINE></Start>
+  <USB_GEN_vect><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>306</LINE></USB_GEN_vect>
+  <USB_COM_vect><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>336</LINE></USB_COM_vect>
+  <SetPrescaler><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>223</LINE></SetPrescaler>
+  <main><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>132</LINE></main>
+  <usb_init><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>207</LINE></usb_init>
+  <mainloop><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>136</LINE></mainloop>
+  <mno_sel><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>146</LINE></mno_sel>
+  <waitsel><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>140</LINE></waitsel>
+  <mode81><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>143</LINE></mode81>
+  <select_mode><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>193</LINE></select_mode>
+  <usb_rxready><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>234</LINE></usb_rxready>
+  <usb_getc><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>258</LINE></usb_getc>
+  <usb_putc><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>286</LINE></usb_putc>
+  <Delay0><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>161</LINE></Delay0>
+  <Delay><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>167</LINE></Delay>
+  <Delay100><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>165</LINE></Delay100>
+  <D16><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>171</LINE></D16>
+  <D17><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>173</LINE></D17>
+  <D18><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>175</LINE></D18>
+  <UIrs><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>212</LINE></UIrs>
+  <rxret><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>253</LINE></rxret>
+  <flush_out><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>244</LINE></flush_out>
+  <usb_txready><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>269</LINE></usb_txready>
+  <txret><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>281</LINE></txret>
+  <flush_in><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>275</LINE></flush_in>
+  <usb_flush><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>288</LINE></usb_flush>
+  <usb_putc_nf><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>296</LINE></usb_putc_nf>
+  <UPNw><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>298</LINE></UPNw>
+  <UGVnr><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>317</LINE></UGVnr>
+  <UGVrs><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>320</LINE></UGVrs>
+  <UCVr><FILE>C:\Documents and Settings\Rikus\My Documents\AVR_U2S\AVR_U2S\U2Sfw_asm\U2Sasm.asm</FILE><LINE>349</LINE></UCVr>
+ </LABELS>
+</ASSEMBLER_INFO>

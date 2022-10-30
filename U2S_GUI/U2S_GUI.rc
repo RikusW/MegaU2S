@@ -1,0 +1,294 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About U2S_GUI"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "U2S_GUI Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyleft (C) 2010",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+    LTEXT           "Rikus Wessels",IDC_STATIC,40,40,119,8
+END
+
+IDD_U2S_GUI_DIALOG DIALOGEX 0, 0, 262, 181
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "U2S_GUI"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Bootloader 0x81",IDC_BUTTON1,15,58,60,14
+    PUSHBUTTON      "&STK500 0x82",IDC_BUTTON2,15,78,60,14
+    PUSHBUTTON      "&App 0x01",IDC_BUTTON4,15,18,60,14
+    GROUPBOX        "Select Mode",IDC_STATIC,5,5,80,155
+    EDITTEXT        IDC_EDIT9,134,21,60,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT10,134,41,110,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Signature:",IDC_STATIC,99,24,33,8
+    LTEXT           "Serial No:",IDC_STATIC,99,44,32,8
+    PUSHBUTTON      "&Debug 0x80",IDC_BUTTON6,15,38,60,14
+    EDITTEXT        IDC_EDIT11,214,20,30,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Module Unlock",IDC_BUTTON3,184,116,60,14
+    PUSHBUTTON      "&Update Info",IDC_BUTTON7,199,60,45,14
+    LTEXT           "Ver:",IDC_STATIC,199,23,14,8
+    PUSHBUTTON      "&JTAGICE1 0x83",IDC_BUTTON8,15,98,60,14
+    PUSHBUTTON      "&USART 0x84",IDC_BUTTON9,15,118,60,14
+    GROUPBOX        "Info",IDC_STATIC,90,5,165,80
+    LTEXT           "App Size:",IDC_STATIC,99,63,31,8
+    EDITTEXT        IDC_EDIT12,134,60,60,14,ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COMBO1,144,95,100,70,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select Port:",IDC_STATIC,99,98,38,8
+    LTEXT           "Use this when updating:",IDC_STATIC,99,119,77,8
+    GROUPBOX        "",IDC_STATIC,90,85,165,55
+    LTEXT           "NOTE: this app can only connect when U2S mode is 80 81 82 83.",
+                    IDC_STATIC,30,166,210,8
+    PUSHBUTTON      "&debugWire 0x85",IDC_BUTTON10,15,139,60,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "U2S_GUI MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "U2S_GUI\0"
+            VALUE "LegalCopyright", "Copyright (C) 1910\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "U2S_GUI.EXE\0"
+            VALUE "ProductName", "U2S_GUI Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_U2S_GUI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_U2S_GUI_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 5, 0
+0x4f43, 0x314d, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x4f43, 0x324d, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x4f43, 0x334d, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x4f43, 0x344d, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x4f43, 0x354d, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x4f43, 0x364d, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About U2S_GUI..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) (unknown sub-lang: 0x7) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENS)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, 0x7
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_DEBUG DIALOG DISCARDABLE  0, 0, 174, 137
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Debug"
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOG_DEBUG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 167
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\U2S_GUI.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\U2S_GUI.ico"
+#endif    // English (U.S.) (unknown sub-lang: 0x7) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\U2S_GUI.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,18 @@
+if((line_flags & 2) && line_status.DTR) { //will be different for LUFA ask abc
+	jump_to_bootloader(); //goto Arduino bootloader
+}
+
+
+
+
+void jump_to_bootloader()
+{
+	UDCON = 0;
+	USBCON = 0; //turn off usb
+	Delay(10); //10ms delay
+
+ 	asm("ldi	r24,0xAF" ::); //mode - Arduino bootloader, no led flashing (0x20)
+	asm("ldi	r30,0x53" ::); //magic
+	asm("ldi	r31,0xCA" ::); //magic
+	asm("jmp	0x7800"   ::); //bootloader start address
+}
