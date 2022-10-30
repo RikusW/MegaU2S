@@ -5,7 +5,7 @@ Artwork
 ![U2S artwork](files/U2S.png)
   
 # Extension Boards
-There are 20 sets of 3 extension boards available, a HVPP board, a level translator board and a pinout adapter board for common Atmel pinouts. Thanks to megal0maniac for taking these highres photos :)  
+There are 20 sets of 3 extension boards available, a HVPP board, a level translator board and a pinout adapter board for common Atmel pinouts. Thanks to megal0maniac for taking these highres photos :) [Imgur page](https://imgur.com/a/rblx5#0)  
   
 HVPP/HVSP board (ST662)  
 ![Extension artwork](files/V101_HVPP.jpg)
