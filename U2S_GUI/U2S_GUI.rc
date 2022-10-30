@@ -42,7 +42,7 @@ IDD_U2S_GUI_DIALOG DIALOGEX 0, 0, 262, 181
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "U2S_GUI"
-FONT 8, "MS Sans Serif"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "&Bootloader 0x81",IDC_BUTTON1,15,58,60,14
     PUSHBUTTON      "&STK500 0x82",IDC_BUTTON2,15,78,60,14
@@ -55,7 +55,7 @@ BEGIN
     PUSHBUTTON      "&Debug 0x80",IDC_BUTTON6,15,38,60,14
     EDITTEXT        IDC_EDIT11,214,20,30,14,ES_AUTOHSCROLL | ES_READONLY
     PUSHBUTTON      "&Module Unlock",IDC_BUTTON3,184,116,60,14
-    PUSHBUTTON      "&Update Info",IDC_BUTTON7,199,60,45,14
+    PUSHBUTTON      "Update &Info",IDC_BUTTON7,199,60,45,14
     LTEXT           "Ver:",IDC_STATIC,199,23,14,8
     PUSHBUTTON      "&JTAGICE1 0x83",IDC_BUTTON8,15,98,60,14
     PUSHBUTTON      "&USART 0x84",IDC_BUTTON9,15,118,60,14
@@ -67,9 +67,85 @@ BEGIN
     LTEXT           "Select Port:",IDC_STATIC,99,98,38,8
     LTEXT           "Use this when updating:",IDC_STATIC,99,119,77,8
     GROUPBOX        "",IDC_STATIC,90,85,165,55
-    LTEXT           "NOTE: this app can only connect when U2S mode is 80 81 82 83.",
-                    IDC_STATIC,30,166,210,8
-    PUSHBUTTON      "&debugWire 0x85",IDC_BUTTON10,15,139,60,14
+    LTEXT           "NOTE: this app can only connect when U2S mode is 80 81 82 83 85.",
+                    IDC_STATIC,21,166,220,8
+    PUSHBUTTON      "debug&Wire 0x85",IDC_BUTTON10,15,139,60,14,WS_DISABLED
+    PUSHBUTTON      "S&ettings",IDC_BUTTON11,190,145,60,14
+    PUSHBUTTON      "USA&RT Setup",IDC_BUTTON12,95,145,60,14
+END
+
+IDD_U2S_DEBUG DIALOG DISCARDABLE  0, 0, 174, 137
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Debug"
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+IDD_U2S_SETTINGS_DIALOG DIALOGEX 0, 0, 169, 89
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "U2S_Settings"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,115,48,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,61,48,50,14
+    COMBOBOX        IDC_COMBO_MODE,45,5,119,108,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Mode:",IDC_STATIC,5,8,21,8
+    COMBOBOX        IDC_COMBO_ISP,45,25,120,83,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "ISP Speed:",IDC_STATIC,5,28,37,8
+    EDITTEXT        IDC_EMSG,5,70,160,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "&Defaults",IDC_BDEFAULTS,5,48,50,14
+END
+
+IDD_U2S_USART DIALOG DISCARDABLE  0, 0, 322, 231
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "USART Setup"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,255,20,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,255,40,50,14
+    GROUPBOX        "USART Setup",IDC_STATIC,5,5,310,80
+    CONTROL         "&Non stardard baud --> baud *= 1.08507   (115200 becomes 125000)",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,15,35,230,10
+    CONTROL         "&Baud override, enter UBRR value below",IDC_RADIO3,
+                    "Button",BS_AUTORADIOBUTTON,15,50,143,10
+    CONTROL         "&Enable RTS/CTS",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,65,72,10
+    CONTROL         "&Standard baud as set from PC",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON,15,20,110,10
+    GROUPBOX        "",IDC_STATIC,5,90,310,135
+    CONTROL         "USART Setup override",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON,15,90,89,10
+    COMBOBOX        IDC_COMBO1,20,110,120,65,CBS_DROPDOWNLIST | 
+                    CBS_NOINTEGRALHEIGHT | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,20,130,120,65,CBS_DROPDOWNLIST | 
+                    CBS_NOINTEGRALHEIGHT | WS_TABSTOP
+    COMBOBOX        IDC_COMBO3,20,150,120,65,CBS_DROPDOWNLIST | 
+                    CBS_NOINTEGRALHEIGHT | WS_TABSTOP
+    COMBOBOX        IDC_COMBO4,20,170,120,65,CBS_DROPDOWNLIST | 
+                    CBS_NOINTEGRALHEIGHT | WS_TABSTOP
+    COMBOBOX        IDC_COMBO5,20,190,120,65,CBS_DROPDOWNLIST | 
+                    CBS_NOINTEGRALHEIGHT | WS_TABSTOP
+    CONTROL         "R&X Enabled",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,155,110,54,10
+    CONTROL         "&TX Enabled",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,225,110,53,10
+    CONTROL         "&RTS Enabled",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,155,125,59,10
+    CONTROL         "&CTS Enabled",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,225,125,58,10
+    CONTROL         "&U2X Enabled",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,200,189,58,10
+    LTEXT           "UBRR:",IDC_STATIC1,165,152,24,8
+    LTEXT           "Baud:",IDC_STATIC2,165,172,22,8
+    EDITTEXT        IDC_EDIT1,200,147,75,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT2,200,167,75,14,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "",IDC_STATIC,155,136,135,69
+    CTEXT           "Show the baud",IDC_STATIC_BAUD,210,65,95,8
+    LTEXT           "When using USART Setup override, USART registers must be setup from here or app code.",
+                    IDC_STATIC,15,210,290,8
 END
 
 
@@ -139,6 +215,28 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 174
     END
+
+    IDD_U2S_DEBUG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 167
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_U2S_SETTINGS_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 168
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_U2S_USART, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 224
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -165,6 +263,53 @@ BEGIN
     0
 END
 
+IDD_U2S_USART DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 19, 0
+0x7341, 0x6e79, 0x6863, 0x6f72, 0x6f6e, 0x7375, 0x5520, 0x4153, 0x5452, 
+"\000" 
+    IDC_COMBO1, 0x403, 25, 0
+0x7953, 0x636e, 0x7268, 0x6e6f, 0x756f, 0x2073, 0x5355, 0x5241, 0x2054, 
+0x614d, 0x7473, 0x7265, "\000" 
+    IDC_COMBO1, 0x403, 24, 0
+0x7953, 0x636e, 0x7268, 0x6e6f, 0x756f, 0x2073, 0x5355, 0x5241, 0x2054, 
+0x6c53, 0x7661, 0x0065, 
+    IDC_COMBO2, 0x403, 7, 0
+0x2035, 0x6962, 0x7374, "\000" 
+    IDC_COMBO2, 0x403, 7, 0
+0x2036, 0x6962, 0x7374, "\000" 
+    IDC_COMBO2, 0x403, 7, 0
+0x2037, 0x6962, 0x7374, "\000" 
+    IDC_COMBO2, 0x403, 7, 0
+0x2038, 0x6962, 0x7374, "\000" 
+    IDC_COMBO3, 0x403, 10, 0
+0x6f4e, 0x7020, 0x7261, 0x7469, 0x0079, 
+    IDC_COMBO3, 0x403, 13, 0
+0x7645, 0x6e65, 0x2020, 0x6170, 0x6972, 0x7974, "\000" 
+    IDC_COMBO3, 0x403, 11, 0
+0x644f, 0x2064, 0x6170, 0x6972, 0x7974, "\000" 
+    IDC_COMBO4, 0x403, 11, 0
+0x2031, 0x7473, 0x706f, 0x6220, 0x7469, "\000" 
+    IDC_COMBO4, 0x403, 12, 0
+0x2032, 0x7473, 0x706f, 0x6220, 0x7469, 0x0073, 
+    IDC_COMBO5, 0x403, 26, 0
+0x6c43, 0x636f, 0x206b, 0x6164, 0x6174, 0x6f20, 0x206e, 0x6972, 0x6973, 
+0x676e, 0x6520, 0x6764, 0x0065, 
+    IDC_COMBO5, 0x403, 27, 0
+0x6c43, 0x636f, 0x206b, 0x6164, 0x6174, 0x6f20, 0x206e, 0x6166, 0x6c6c, 
+0x6e69, 0x2067, 0x6465, 0x6567, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\U2S_GUI.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -188,38 +333,6 @@ END
 LANGUAGE LANG_ENGLISH, 0x7
 #pragma code_page(1252)
 #endif //_WIN32
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_DIALOG_DEBUG DIALOG DISCARDABLE  0, 0, 174, 137
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Debug"
-FONT 8, "MS Sans Serif"
-BEGIN
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
-BEGIN
-    IDD_DIALOG_DEBUG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 167
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 130
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -257,15 +370,6 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\U2S_GUI.ico"
 #endif    // English (U.S.) (unknown sub-lang: 0x7) resources
 /////////////////////////////////////////////////////////////////////////////
 

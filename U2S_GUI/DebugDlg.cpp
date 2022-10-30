@@ -3,7 +3,10 @@
 
 #include "stdafx.h"
 #include "U2S_GUI.h"
+#include "U2S.h"
 #include "DebugDlg.h"
+
+extern U2S u2s;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -45,9 +48,6 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // DebugDlg message handlers
 
-#include "U2S.h"
-
-extern U2S u2s;
 
 const int xo=80;
 const int yo=20;
@@ -73,7 +73,7 @@ const char *ports[] = {
 "PIND","DDRD","PORTD",
 };
 
-const char enable[] = {
+const unsigned char enable[] = {
 0xFF,0xFF,0xFF,
 0xF0,0xF0,0xF0,
 0xFF,0xFF,0xFF,

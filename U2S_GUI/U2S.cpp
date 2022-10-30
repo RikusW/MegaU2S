@@ -236,7 +236,32 @@ void U2S::ReadFlash(u8 **buf, u16 u)
 
 //---------------------------
 // EEProm
-//#define CMD_PROGRAM_EEPROM_ISP              0x15
+
+void U2S::WriteEeprom(u8 *buf, u16 u)
+{
+	if(u > 128) {
+		u = 128;
+	}
+	*msg++ = CMD_PROGRAM_EEPROM_ISP;
+	*msg++ = (u8)((u >> 8) & 0xFF);
+	*msg++ = (u8)((u >> 0) & 0xFF);
+	*msg++ = 0xC1; //mode ignored by bootloader ???XXX
+	*msg++ = 0x14; //delay ignored ??
+	*msg++ = 0xC1; //cmd1
+	*msg++ = 0xC2; //cmd2
+	*msg++ = 0xA0; //cmd3
+	*msg++ = 0x00; //poll1 ??
+	*msg++ = 0x00; //poll2 ??
+
+	for(u8 i = 0; i < u; i++) {
+		*msg++ = *buf++;
+	}
+
+	SendMsg();
+	GetMsg();
+}
+
+//---------------------------
 
 void U2S::ReadEeprom(u8 **buf, u16 u)
 {
@@ -253,6 +278,7 @@ void U2S::ReadEeprom(u8 **buf, u16 u)
 }
 
 //---------------------------
+//Fuses
 
 void U2S::WriteFuse(u8 a, u8 v)
 {

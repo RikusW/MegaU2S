@@ -5,7 +5,11 @@
 #include "U2S_GUI.h"
 #include "U2S_GUIDlg.h"
 #include "U2S.h"
+#include "UsartDlg.h"
 #include "DebugDlg.h"
+#include "SettingsDlg.h"
+
+U2S u2s;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -101,6 +105,8 @@ BEGIN_MESSAGE_MAP(CU2S_GUIDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON2, OnSetToSTK500)
 	ON_BN_CLICKED(IDC_BUTTON9, OnSetToUART)
 	ON_BN_CLICKED(IDC_BUTTON10, OnSetToDW)
+	ON_BN_CLICKED(IDC_BUTTON11, OnButtonSettings)
+	ON_BN_CLICKED(IDC_BUTTON12, OnButton12)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -195,8 +201,6 @@ HCURSOR CU2S_GUIDlg::OnQueryDragIcon()
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-U2S u2s;
-
 bool CU2S_GUIDlg::Connect(BYTE m)
 {
 	CString cs; //CComboBox should have had a member called GetText... grrrr
@@ -289,21 +293,11 @@ void CU2S_GUIDlg::OnSelchangeCombo1()
 	OnUpdateInfo();	
 }
 
-void CU2S_GUIDlg::OnModUnlock() 
-{
-	if(Connect(0x81)) {
-//		u2s.SelectMode(0x81);
-		u2s.ModUnlock();
-	}
-	Disconnect();
-}
-
 //-----------------------------------------------------------------------------
 
 bool CU2S_GUIDlg::SelectMode(BYTE b)
 {
-	if(Connect(b)) {
-//		u2s.SelectMode(b);
+	if(!Connect(b)) {
 	}else{
 		Disconnect();
 		return false;
@@ -320,10 +314,9 @@ void CU2S_GUIDlg::OnSetToApp()
 void CU2S_GUIDlg::OnSetToDebug() 
 {
 	if(Connect(0x80)) {
-//		u2s.SelectMode(0x80);
 		if((u2s.GetMode() & 0x8F) == 0x80) {
-			DebugDlg dd(this);
-			dd.DoModal();
+			DebugDlg dlg(this);
+			dlg.DoModal();
 		}
 		Disconnect();
 	}
@@ -353,4 +346,35 @@ void CU2S_GUIDlg::OnSetToDW()
 	SelectMode(0x85);
 }
 
+//-----------------------------------------------
+
+void CU2S_GUIDlg::OnModUnlock() 
+{
+	if(Connect(0x81)) {
+//		u2s.SelectMode(0x81);
+		u2s.ModUnlock();
+	}
+	Disconnect();
+}
+
+void CU2S_GUIDlg::OnButtonSettings() 
+{
+	if(Connect(0x81)) {
+		CU2S_SettingsDlg dlg;
+		dlg.DoModal();
+	}
+	Disconnect();
+}
+
+void CU2S_GUIDlg::OnButton12() 
+{
+	if(Connect(0x81)) {
+		UartDlg dlg;
+		dlg.DoModal();
+	}
+	Disconnect();
+}
+
 //-----------------------------------------------------------------------------
+
+

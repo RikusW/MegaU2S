@@ -58,6 +58,8 @@ protected:
 	afx_msg void OnSetToSTK500();
 	afx_msg void OnSetToUART();
 	afx_msg void OnSetToDW();
+	afx_msg void OnButtonSettings();
+	afx_msg void OnButton12();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -97,6 +97,10 @@ SOURCE=.\RCom.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\SettingsDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
 # End Source File
@@ -111,17 +115,14 @@ SOURCE=.\U2S_GUI.cpp
 # Begin Source File
 
 SOURCE=.\U2S_GUI.rc
-
-!IF  "$(CFG)" == "U2S_GUI - Win32 Release"
-
-!ELSEIF  "$(CFG)" == "U2S_GUI - Win32 Debug"
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=.\U2S_GUIDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\UsartDlg.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -145,6 +146,10 @@ SOURCE=.\Resource.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\SettingsDlg.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.h
 # End Source File
 # Begin Source File
@@ -153,11 +158,19 @@ SOURCE=.\U2S.H
 # End Source File
 # Begin Source File
 
+SOURCE=.\U2S_Debug.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\U2S_GUI.h
 # End Source File
 # Begin Source File
 
 SOURCE=.\U2S_GUIDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\UsartDlg.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

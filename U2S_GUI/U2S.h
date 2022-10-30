@@ -32,6 +32,7 @@ public:
 	//TODO prog/read flash/eeprom
 	void ReadFlash(u8 **buf, u16 u);
 	void ReadEeprom(u8 **buf, u16 u);
+	void WriteEeprom(u8 *buf, u16 u);
 
 
 	#define WF_LFUSE 0xA0 //lf AC A0 00 ii
