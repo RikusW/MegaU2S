@@ -16,10 +16,12 @@ Bitflags:
 0x40 will prevent usb setup, don't use with 0x80. Only use it if doing usb\_setup in the application.  
 0x20 will prevent the led flashing.  
 0x10 will prevent line\_variable init, DON'T set this bit, used when jumping into the bootloader.  
+
 ---
 eesck (0x01) is the default sck speed during ISP programming.  
 This is the same value as used in AVRStudio.  
 U2S is using a 8MHz clock so 460KHz is actually 500KHz. eeoscp (0x02) oscillator prescaler value.  
+
 ---
 eeoscc (0x03) oscillator divider value.  
 These are the same values as used in AVRStudio, for the clock generator.  
@@ -48,12 +50,16 @@ sbi DDRB,7 //OC0A=B7
 secoff:  
 ret  
 ```
+
 ---
 eerst (0x04) the reset polarity, 1=AVR 0=AT89, leave at 1.  
+
 ---
 eesmv (0x05) the STK500 firmware minor version, change this to the proper value to prevent AVRStudio from complaining. (default 0x0A for AS4.18)  
+
 ---
 eeadl (0x06) the Arduino bootloader timeout = (256-eeadl) * 12800us  
+
 ---
 This is the assembly code definition of the eeprom variables.  
 The last 16 is reserved for bootloader firmware. (0x00 to 0x0F)  
