@@ -44,7 +44,7 @@ One of the .eep files in U2Settings.tgz can be loaded to change the default star
   
 This can also be used if your custom app code have overwritten the eeprom settings by accident. Use the Select button to enter bootloader mode first. (rs RS)  
   
-avrdude terminal mode can be used as well. Add [bl32u2\_avrdude\_conf\_patch.txt](bl32u2\_avrdude\_conf\_patch.txt) to /etc/avrdude.conf, then use ->  avrdude -p bl32u2 -c stk500pp -P /dev/ttyACM0 -t  
+avrdude terminal mode can be used as well. Add [bl32u2\_avrdude\_conf\_patch.txt](files/bl32u2\_avrdude\_conf\_patch.txt) to /etc/avrdude.conf, then use ->  avrdude -p bl32u2 -c stk500pp -P /dev/ttyACM0 -t  
   
 read eep 0x3f0 0x10 -- will read the settings  
 03f0 81 02 02 0a b0 30 00 00 00 02 00 ff ff 00 ff 01 \|... .0..........\|  
