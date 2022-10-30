@@ -25,6 +25,9 @@ This cannot actually debug a program on the AVR itself.
   
 Look on [here](../U2S_Debug) for template project.  
 
+# STK500
+The [STK500](STK500.md) is in module 0x82
+
 # JTAGICE mkI+  
 The JTAGICE mki is in module 0x83.  
 Pressing SELECT will go back to the bootloader.  
