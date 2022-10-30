@@ -1,5 +1,5 @@
 # USB Driver
-##Installing the driver and connecting
+## Installing the driver and connecting
 Give Windows the atmegau2\_cdc\_x64.inf when installing the device, it should work on both 32 and 64 bit Windows.
 
 It usually will be COM3 or COM4, if not use "Device Manager" to set it to that.
@@ -15,7 +15,7 @@ This is due to Avrdude using SPI\_MULTI and not the proper ISP commands.
 Also apply the avrdude.conf patch on the Supporting Software page,
 this is required when writing to eeprom in bootloader mode.
 
-##A few notes on USB
+## A few notes on USB
 When resetting the board while an application is connected will cause it to enumerate as the next available com port. Close the application first to prevent this.
 
 Use usb\_putc\_nf instead of usb\_putc, flushing byte by byte will slow down USB to about 1kb/s instead of 67kb/s. (Look inside Supporting Software U2Sfw for more details.)
