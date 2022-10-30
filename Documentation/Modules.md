@@ -25,3 +25,21 @@ This cannot actually debug a program on the AVR itself.
   
 Look on [here](../U2S_Debug) for template project.  
 
+# JTAGICE mkI+  
+The JTAGICE mki is in module 0x83.  
+Pressing SELECT will go back to the bootloader.  
+There must be a supported AVR connected for it to work.  
+The target AVR must be connected __BEFORE__ entering this module.  
+ 1. Connect the target then the USB cable or,  
+ 2. Connect the target then select the JTAGICE module.  
+  
+Supported devices for AVRStudio 4.18: ATmega16(L),  ATmega162(L), ATmega169(L or V), ATmega32(L), ATmega323(L), ATmega64(L), ATmega128(L)  
+Now supports new ATmegas too, will need custom PC side software, or a hack modifying data structures in the dll.  
+  
+The Jtag pinout:  
+B0 - Reset  
+B1 - TCK  
+B2 - TDI  
+B3 - TDO  
+B7 - TMS  
+  
