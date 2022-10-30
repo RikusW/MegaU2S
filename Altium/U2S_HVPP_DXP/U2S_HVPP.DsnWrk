@@ -1,0 +1,10 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=U2S_HVPP.PrjPCB
+[Project2]
+ProjectPath=U2S_HVPP.LibPkg
+[Project3]
+ProjectPath=MiscComponents.LibPkg
+[Project4]
+ProjectPath=..\..\AVR_U2S\U2S_DXP\Test32U2.PrjPCB

@@ -1,0 +1,4 @@
+Record=SheetSymbol|SourceDocument=U2S_TOP.SchDoc|Designator=HVPP|SchDesignator=HVPP|FileName=U2S_HVPP.SchDoc
+Record=SheetSymbol|SourceDocument=U2S_TOP.SchDoc|Designator=ISP_JTAG|SchDesignator=ISP_JTAG|FileName=U2S_ISP_JTAG.SchDoc
+Record=SheetSymbol|SourceDocument=U2S_TOP.SchDoc|Designator=XLAT|SchDesignator=XLAT|FileName=U2S_XLAT.SchDoc
+Record=TopLevelDocument|FileName=U2S_TOP.SchDoc

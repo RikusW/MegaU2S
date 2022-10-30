@@ -1,0 +1,12 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=Test32U2.PrjPCB
+[Project2]
+ProjectPath=ATMega32U2.LibPkg
+[Project3]
+ProjectPath=USBB.LibPkg
+[Project4]
+ProjectPath=MTS-1132.LibPkg
+[Project5]
+ProjectPath=HC49.LibPkg

@@ -1,0 +1,16 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Project [Test32U2.PrjPCB]
+   Generated File[Test32U2.GTL]
+   Generated File[Test32U2.GBL]
+   Generated File[Test32U2.GTS]
+   Generated File[Test32U2.GBS]
+   Generated File[Test32U2.GM1]
+   Generated File[Test32U2.RUL]
+   Generated File[Test32U2.REP]
+
+
+Files Generated   : 7
+Documents Printed : 0
+
+Finished Output Generation At 07:38:00 PM On 2010/05/13

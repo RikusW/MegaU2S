@@ -1,0 +1,6 @@
+DRC Rules Export File for PCB: C:\Documents and Settings\Rikus\My Documents\Collar\U2S_HVPP_DXP\U2S_HVPP.PCBDOC
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.00
+RuleKind=Clearance|RuleName=Clearance_1|Scope=Board|Minimum=12.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=7.00

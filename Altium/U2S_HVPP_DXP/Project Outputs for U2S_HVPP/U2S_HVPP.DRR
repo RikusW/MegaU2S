@@ -1,0 +1,19 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: U2S_HVPP.PCBDOC   3/5/2013  2:10:40 PM
+---------------------------------------------------------------------------
+
+
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII File : NCDrillOutput.TXT
+EIA File   : NCDrillOutput.DRL
+
+Tool         Hole Size          Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        0.5mm (19.685mil)        56               389.92 mm (15.35 Inch)
+T2        0.9mm (35.433mil)        160              719.07 mm (28.31 Inch)
+T3        0.8mm (31.496mil)        48        NPTH   374.91 mm (14.76 Inch)
+---------------------------------------------------------------------------
+Totals                             264              1483.90 mm (58.42 Inch)
+
+Total Processing Time (hh:mm:ss) : 00:00:00
