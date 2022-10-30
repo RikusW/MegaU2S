@@ -1,7 +1,6 @@
 # USB Driver
 ## Installing on Windows 
-Give Windows the [atmegau2\_cdc.inf](files/atmegau2\_cdc.inf) file if not auto installed, it was tested on both 32 and 64 bit Windows.  
-  
+Give Windows the [32 bit](files/atmegau2\_cdc.inf) or [32/64 bit](files/atmegau2\_cdc\_x64.inf) inf file if not auto installed, it was tested on both 32 and 64 bit Windows.  
 It usually will be COM3 or COM4, if not use "Device Manager" to set it to that.  
 It will be listed under "Ports (COM & LPT)" as "ATmegaU2 CDC (COMx)" or "Atmel Corp. at90usbkey sample firmware"  
 In AVRStudio click on the Con(nect) button and select STK500 and COM3/4.  
