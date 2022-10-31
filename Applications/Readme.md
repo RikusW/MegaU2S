@@ -1,4 +1,5 @@
 # U2S Applications
+[Example\_SPI\_master](Example_SPI_master)
 [USB Blaster](Blaster20131026)  
 
 # PC side applications
