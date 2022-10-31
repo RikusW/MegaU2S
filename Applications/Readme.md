@@ -1,5 +1,8 @@
 # U2S Applications
-[Example\_SPI\_master](Example_SPI_master)
+[Example\_Echo\_test](Example_Echo_test)  
+[Example\_Echo\_test\_asm](Example_Echo_test_asm)  
+[Example\_Pulse\_Counter](Example_Pulse_Counter)  
+[Example\_SPI\_master](Example_SPI_master)  
 [USB Blaster](Blaster20131026)  
 
 # PC side applications

@@ -20,7 +20,7 @@ This is required when writing to eeprom in bootloader mode.
 ## A few notes on USB
 When resetting the board while an application is connected will cause it to enumerate as the next available com port, close the application first to prevent this.  
   
-The builtin bootloader CDC driver is also available from [application code](Example_Echo_test).  
+The builtin bootloader CDC driver is also available from [application code](../Applications/Example_Echo_test).  
 Use usb\_putc\_nf instead of usb\_putc, flushing byte by byte will slow down USB to about 1kb/s instead of 67kb/s.  
 Look inside [U2S firmware](../Firmware/BL32U2) for more details.  
   
