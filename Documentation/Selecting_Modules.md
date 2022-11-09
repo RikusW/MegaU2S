@@ -39,10 +39,12 @@ Loadable modules:
 0x8F -- Arduino bootloader, activated from the Arduino Core files. A wrapper for Bootloader mode, with a timeout added.  
 
 ## Changing the default mode  
-NEW: U2S\_GUI will now allow changing default modes.  
-One of the .eep files in U2Settings.tgz can be loaded to change the default startup mode. U2Settings\_APP\_NoUSB.eep can be use if your firmware contains its own USB code.  
+[U2S\_GUI](../Applications/U2S_GUI) will now allow changing default modes and more.  
   
-This can also be used if your custom app code have overwritten the eeprom settings by accident. Use the Select button to enter bootloader mode first. (rs RS)  
+One of the [.eep files](../Firmware/U2Settings) can be loaded to change the default startup mode.  
+U2Settings\_APP\_NoUSB.eep can be used if your firmware contains its own USB code.  
+This can also be used if your custom app code have overwritten the eeprom settings by accident.  
+Use the Select button to enter bootloader mode first. (rs RS)  
   
 avrdude terminal mode can be used as well. Add [bl32u2\_avrdude\_conf\_patch.txt](files/bl32u2\_avrdude\_conf\_patch.txt) to /etc/avrdude.conf, then use ->  avrdude -p bl32u2 -c stk500pp -P /dev/ttyACM0 -t  
   

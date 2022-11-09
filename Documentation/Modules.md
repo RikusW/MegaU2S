@@ -4,7 +4,7 @@ It supports both ISP and HVPP (stk500pp) protocols, avrdude must use stk500pp, s
 Pressing the Select button while in this module will execute the application.  
 
 # Emergency recovery mode 0x8E
-This can be selected with the switches to force bootloader mode without detecting modules outside the boot section.  
+This can be [selected](Selecting_Modules.md) with the switches to force bootloader mode without detecting modules outside the boot section.  
 In the unlikely event the module linked list gets overwritten with invalid data the bootloader will fail.  
 
 # Arduino bootloader module 0x8F
