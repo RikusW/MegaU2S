@@ -65,6 +65,7 @@ This is the assembly code definition of the eeprom variables.
 The last 16 is reserved for bootloader firmware. (0x00 to 0x0F)  
 Those marked xx SHOULD NOT be changed.  
 These values are directly mapped to parameters 0x90-0x9E. (0x10E-0x11C in SRAM)  
+[AVR Studio projecty](../Firmware/U2Settings)
 ```
 .eseg  
 .org EEPROMEND-0xF  
