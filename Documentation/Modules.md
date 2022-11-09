@@ -23,7 +23,7 @@ You'll be able to access AVR registers from within Visual studio as if using AVR
   
 This cannot actually debug a program on the AVR itself.  
   
-Look on [here](../U2S_Debug) for template project.  
+Look on [here](../Applications/U2S_Debug) for template project.  
 
 # STK500
 The [STK500](STK500.md) is in module 0x82
