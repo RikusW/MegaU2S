@@ -1,16 +1,17 @@
-# Bootloader  
-The bootloader is in module 0x81 inside the boot section.  
-It supports both ISP and HVPP (stk500pp) protocols.  
-avrdude must use stk500pp, stk500v2 won't work.  
+# Bootloader module 0x81
+The bootloader and USB CDC driver is inside the 2048 byte boot section.  
+It supports both ISP and HVPP (stk500pp) protocols, avrdude must use stk500pp, stk500v2 won't work.  
 Pressing the Select button while in this module will execute the application.  
-  
-The Arduino bootloader is in module 0x8F.  
-The first Arduino Sketch must be loaded using module 0x81.  
-It basically uses module 0x81 and adds a timeout of about 1 second.  
-The Arduino Core will use this module to load the next Sketch,  
-or to reset the Sketch when opening the console.  
 
-# Debug Module  
+# Emergency recovery mode 0x8E
+This can be selected with the switches to force bootloader mode without detecting modules outside the boot section.  
+In the unlikely event the module linked list gets overwritten with invalid data the bootloader will fail.  
+
+# Arduino bootloader module 0x8F
+This is an Arduino compatible 1 second timeout loop using the above bootloader module. The first Arduino Sketch must be loaded using module 0x81, then the Arduino Core will use this module to load the next Sketch, or to reset the Sketch when opening the console.  
+I did once make it work with the Arduino IDE but will have to start over on supporting it.  
+
+# Debug Module 0x80
 It supports accessing any memory location including register, IO and SRAM.  
   
 It has the following commands:  
@@ -25,11 +26,10 @@ This cannot actually debug a program on the AVR itself.
   
 Look on [here](../Applications/U2S_Debug) for template project.  
 
-# STK500
-The [STK500](STK500.md) is in module 0x82
+# STK500 module 0x82
+[STK500](STK500.md)
 
-# JTAGICE mkI+  
-The JTAGICE mki is in module 0x83.  
+# JTAGICE mkI+ module 0x83
 Pressing SELECT will go back to the bootloader.  
 There must be a supported AVR connected for it to work.  
 The target AVR must be connected __BEFORE__ entering this module.  
@@ -46,8 +46,7 @@ B2 - TDI
 B3 - TDO  
 B7 - TMS  
   
-# UART  
-The UART is in module 0x84.  
+# UART module 0x84
 Pressing SELECT will go back to the bootloader.  
 Look in ATmega8U2/16U2/32U2 for the USART pinout on PORTD.  
   
